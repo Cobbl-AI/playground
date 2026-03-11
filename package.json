@@ -10,7 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
-    "@cobbl-ai/feedback-widget": "^0.1.0",
+    "@cobbl-ai/feedback-widget": "^0.1.2",
     "@cobbl-ai/sdk": "^0.1.1",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-collapsible": "^1.1.12",

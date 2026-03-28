@@ -66,7 +66,11 @@ const runPromptSchema = z.object({
 
 type RunPromptFormData = z.infer<typeof runPromptSchema>
 
-export const PlaygroundPage = () => {
+type PlaygroundPageProps = {
+  slug?: string
+}
+
+export const PlaygroundPage = ({ slug }: PlaygroundPageProps) => {
   const { theme, resolvedTheme } = useTheme()
   const [promptResponse, setPromptResponse] =
     useState<RunPromptResponse | null>(null)
@@ -98,7 +102,7 @@ export const PlaygroundPage = () => {
     resolver: zodResolver(runPromptSchema),
     defaultValues: {
       apiKey: process.env.NEXT_PUBLIC_PLAYGROUND_API_KEY || '',
-      promptSlug: process.env.NEXT_PUBLIC_PLAYGROUND_PROMPT_SLUG || '',
+      promptSlug: slug || process.env.NEXT_PUBLIC_PLAYGROUND_PROMPT_SLUG || '',
       variables: {},
     },
   })
